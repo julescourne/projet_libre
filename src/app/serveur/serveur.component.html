@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon >menu</mat-icon>
+    </button>
+    <h1>Projet Libre</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/login'"> Accounts </a>
+      <a mat-button [routerLink]="'/'"> Serveur web </a>
+      <a mat-button [routerLink]="'/'"> Serveur de stockage </a>
+      <a mat-button [routerLink]="'/create-contact'"> Serveur mail </a>
+
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
