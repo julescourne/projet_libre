@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { SigninService } from '../../services/signin/signin.service';
 
 @Component({
   selector: 'app-signin',
@@ -8,17 +9,33 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./signin.component.css']
 })
 
-export class SigninComponent {
+export class SigninComponent{
 
-  constructor(private router: Router ) { }
+  signinForm: FormGroup;
 
-  signinForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-  });
+  constructor(private router: Router, private signinService: SigninService, private formBuilder: FormBuilder ) {
+   this.signinForm = this.formBuilder.group({
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      gender: ['male'],
+      age: ['', [Validators.required, Validators.min(18)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
   onSubmit() {
-    // Submit signin form to server
-    this.router.navigate(['/login']);
+    if (this.signinForm.valid) {
+      this.signinService.submitForm(this.signinForm).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/login']);
+        },
+        error => {
+          console.log(error);
+          // Handle the error
+        }
+      );
+    }
   }
 }
