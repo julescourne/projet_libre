@@ -7,9 +7,7 @@ import { FormGroup } from '@angular/forms';
   providedIn: 'root'
 })
 export class LoginService {
-
   private baseUrl = 'localhost:4200';
-  private userSession: any;
 
   constructor(private http: HttpClient) { }
 
