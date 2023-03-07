@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 
@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
   providedIn: 'root'
 })
 export class LoginService {
-  private baseUrl = 'localhost:4200';
+  private baseUrl = 'http://localhost:8080/authenticate/token';
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class LoginService {
         password: form.get('password')?.value,
         rememberMe: form.get('rememberMe')?.value
       };
-
-      return this.http.post<any>(this.baseUrl + '/login', formData);
+      const headers = new HttpHeaders({Autorisation : 'Basic ' + btoa(formData.email + ":" + formData.password)});
+      return this.http.post<any>(this.baseUrl, formData ,{headers});
     }
 }
