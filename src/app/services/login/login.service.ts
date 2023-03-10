@@ -15,9 +15,7 @@ export class LoginService {
       const formData = {
         email: form.get('email')?.value,
         password: form.get('password')?.value,
-        rememberMe: form.get('rememberMe')?.value
       };
-      const headers = new HttpHeaders({Autorisation : 'Basic ' + btoa(formData.email + ":" + formData.password)});
-      return this.http.post<any>(this.baseUrl, formData ,{headers});
+      return this.http.post(this.baseUrl, { username : formData.email , password : formData.password} , {responseType: 'text'});
     }
 }
