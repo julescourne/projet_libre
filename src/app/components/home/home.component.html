@@ -14,7 +14,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<form [formGroup]="serveurForm" (ngSubmit)="onSubmit()">
+<form>
   <label for="userId">User ID:</label>
   <input type="text" id="userId" name="userId"><br>
 
@@ -33,14 +33,6 @@
   <label for="region">Region:</label>
   <input type="text" id="region" list="regions"><br>
   <datalist id="regions">
-    <option value="North America">
-    <option value="South America">
-    <option value="Europe East">
-    <option value="Europe West">
-    <option value="North Asia">
-    <option value="South Asia">
-    <option value="Africa">
-    <option value="Oceania">
   </datalist>
 
   <label for="image">Image:</label>
@@ -55,5 +47,5 @@
   <label for="vmStatus">VM Status:</label>
   <input type="text" id="vmStatus" name="vmStatus"><br>
 
-  <button type="submit" [disabled]="serveurForm.invalid">Créer la VM</button>
+  <button type="submit" >Créer la VM</button>
 </form>
