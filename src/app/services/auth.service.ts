@@ -55,8 +55,8 @@ export class AuthService {
   }
 
   // get the token from localStorage 
-  getJwtToken() {
-    return localStorage.getItem(this.JWT_TOKEN);
+  getJwtToken() : string  {
+    return localStorage.getItem(this.JWT_TOKEN) || '';
   }
 
   // store the toke in the localstorage 
