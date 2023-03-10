@@ -22,8 +22,7 @@ export class AuthService {
   // 
   login(user: { username: string, password: string }): Observable<boolean> {
     const url = `${appConstant.BACKEND}${appConstant.TOKEN_ROUTE}`
-    console.log(url)
-    console.log(user)
+    
     return this.http.post(url, user , { responseType: 'text'})
       .pipe(
         tap(token => this.doLoginUser(user.username, token)),

@@ -1,4 +1,7 @@
+import { MyAzureVirtualMachineImage } from "./myAzureVirtualMachineImage";
+
 export interface Virtualemachine {
+    
   userId?: string;
 
   vmId?: string;
