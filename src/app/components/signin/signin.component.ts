@@ -1,7 +1,6 @@
 import { Component} from '@angular/core';
 import {Router} from "@angular/router";
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { SigninService } from 'src/app/services/signin/signin.service';
 
 @Component({
   selector: 'app-signin',
@@ -13,7 +12,7 @@ export class SigninComponent{
 
   signinForm: FormGroup;
 
-  constructor(private router: Router, private signinService: SigninService, private formBuilder: FormBuilder ) {
+  constructor(private router: Router,  private formBuilder: FormBuilder ) {
    this.signinForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
@@ -24,18 +23,18 @@ export class SigninComponent{
     });
   }
 
-  onSubmit() {
-    if (this.signinForm.valid) {
-      this.signinService.submitForm(this.signinForm).subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/login']);
-        },
-        error => {
-          console.log(error);
-          // Handle the error
-        }
-      );
-    }
-  }
+ //onSubmit() {
+ //  if (this.signinForm.valid) {
+ //    this.signinService.submitForm(this.signinForm).subscribe(
+ //      response => {
+ //        console.log(response);
+ //        this.router.navigate(['/login']);
+ //      },
+ //      error => {
+ //        console.log(error);
+ //        // Handle the error
+ //      }
+ //    );
+ //  }
+ //}
 }
