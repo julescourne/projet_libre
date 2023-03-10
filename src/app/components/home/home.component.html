@@ -10,7 +10,50 @@
       <a mat-button [routerLink]="'/'"> Serveur web </a>
       <a mat-button [routerLink]="'/'"> Serveur de stockage </a>
       <a mat-button [routerLink]="'/create-contact'"> Serveur mail </a>
-
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<form [formGroup]="serveurForm" (ngSubmit)="onSubmit()">
+  <label for="userId">User ID:</label>
+  <input type="text" id="userId" name="userId"><br>
+
+  <label for="userName">User Name:</label>
+  <input type="text" id="userName" name="userName"><br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br>
+
+  <label for="vmId">VM ID:</label>
+  <input type="text" id="vmId" name="vmId"><br>
+
+  <label for="vmName">VM Name:</label>
+  <input type="text" id="vmName" name="vmName"><br>
+
+  <label for="region">Region:</label>
+  <input type="text" id="region" list="regions"><br>
+  <datalist id="regions">
+    <option value="North America">
+    <option value="South America">
+    <option value="Europe East">
+    <option value="Europe West">
+    <option value="North Asia">
+    <option value="South Asia">
+    <option value="Africa">
+    <option value="Oceania">
+  </datalist>
+
+  <label for="image">Image:</label>
+  <input type="text" id="image" name="image"><br>
+
+  <label for="ipAddress">IP Address:</label>
+  <input type="text" id="ipAddress" name="ipAddress"><br>
+
+  <label for="diskSize">Disk Size:</label>
+  <input type="text" id="diskSize" name="diskSize"><br>
+
+  <label for="vmStatus">VM Status:</label>
+  <input type="text" id="vmStatus" name="vmStatus"><br>
+
+  <button type="submit" [disabled]="serveurForm.invalid">Créer la VM</button>
+</form>
