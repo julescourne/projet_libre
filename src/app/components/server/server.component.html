@@ -1,0 +1,58 @@
+
+<table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="vmName" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> vmName </th>
+      <td mat-cell *matCellDef="let element"> {{element.vmName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="region" >
+      <th mat-header-cell *matHeaderCellDef> region </th>
+      <td mat-cell *matCellDef="let element"> {{element.region}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="imageDeBase">
+      <th mat-header-cell *matHeaderCellDef> imageDeBase </th>
+      <td mat-cell *matCellDef="let element"> {{element.imageDeBase}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef >userName</th>
+      <td mat-cell *matCellDef="let element">{{element.userName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ipAddress">
+      <th mat-header-cell *matHeaderCellDef>ipAddress </th>
+      <td mat-cell *matCellDef="let element">{{element.ipAddress}}</td>
+    </ng-container>
+    <ng-container matColumnDef="diskSize">
+      <th mat-header-cell *matHeaderCellDef>diskSize</th>
+      <td mat-cell *matCellDef="let element">{{element.diskSize}}</td>
+    </ng-container>
+    <ng-container matColumnDef="vmStatus">
+      <th mat-header-cell *matHeaderCellDef>vmStatus </th>
+      <td mat-cell *matCellDef="let element">{{element.vmStatus}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef> Update </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="accent" (click)="redirectToUpdate(element.id)">
+              <mat-icon class="mat-18">system_update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="redirectToDelete(element.id)">
+                <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSize]="8" [pageSizeOptions]="[8, 12, 20]">
+  </mat-paginator>
