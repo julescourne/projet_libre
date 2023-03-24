@@ -8,7 +8,8 @@
     <div>
       <a mat-button [routerLink]="'/login'"> Account </a>
       <a mat-button [routerLink]="'/virtual-machines'"> My Virtual Machines </a>
-      <a mat-button [routerLink]="'/'"> Create Server </a>
+      <mat-dialog-actions><a mat-button (click)="opendialog()"> Create Server </a></mat-dialog-actions>
+      
       <a mat-button [routerLink]="'/create-contact'"> Serveur mail </a>
     </div>
   </mat-toolbar-row>

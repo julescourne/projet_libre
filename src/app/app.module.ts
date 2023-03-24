@@ -17,7 +17,11 @@ import { CreateServerModalComponent } from './components/create-server-modal/cre
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import {MatPaginatorModule } from '@angular/material/paginator';
-
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from '@angular/material/input'; 
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatSelectModule} from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,13 @@ import {MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatInputModule, 
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+
   ],
   providers: [
     {
