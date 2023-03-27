@@ -3,13 +3,12 @@
     <button mat-icon-button>
       <mat-icon >menu</mat-icon>
     </button>
-    <h1>Projet Libre</h1>
+    <span>Projet Libre</span>
     <span class="menu-spacer"></span>
     <div>
       <a mat-button [routerLink]="'/login'"> Account </a>
       <a mat-button [routerLink]="'/virtual-machines'"> My Virtual Machines </a>
-      <mat-dialog-actions><a mat-button (click)="opendialog()"> Create Server </a></mat-dialog-actions>
-      
+      <mat-dialog-actions><a mat-button (click)="opendialog()"><mat-icon>add</mat-icon> Create Server </a></mat-dialog-actions>
       <a mat-button [routerLink]="'/create-contact'"> Serveur mail </a>
     </div>
   </mat-toolbar-row>
