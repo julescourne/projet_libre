@@ -26,8 +26,12 @@ export class LoginComponent{
       if (this.loginForm.valid) {
         this.username = this.loginForm.get('email')?.value, 
         this.password = this.loginForm.get('password')?.value,
-        this.authService.login({username: this.username ,password:this.password}).subscribe(result => console.log(result + "success"))
-      
+        this.authService.login({username: this.username ,password:this.password}).subscribe(result => {
+          if (result === true )
+          {
+            
+          }
+        })
       }
     
       

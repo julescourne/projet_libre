@@ -8,7 +8,7 @@ export interface Virtualemachine {
 
   vmName: string;
 
-  region?: string;
+  region: string;
 
   imageDeBase: MyAzureVirtualMachineImage;
 

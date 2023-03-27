@@ -32,5 +32,5 @@ export enum MyRegions {
   KOREA_SOUTH = "Korea South",
   INDIA_CENTRAL = "India Central",
   INDIA_SOUTH = "India South",
-  INDIA_WEST = "India West";
+  INDIA_WEST = "India West"
 }

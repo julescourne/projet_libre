@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, mapTo, Observable, of, tap } from 'rxjs';
 import  appConstant  from '../constant/app.constant';
@@ -55,8 +55,8 @@ export class AuthService {
   }
 
   // get the token from localStorage 
-  getJwtToken() {
-    return localStorage.getItem(this.JWT_TOKEN);
+  getJwtToken() : string  {
+    return localStorage.getItem(this.JWT_TOKEN) || '';
   }
 
   // store the toke in the localstorage 
