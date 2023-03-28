@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Site de location de serveurs</title>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="../../../assets/logo.jpg" alt="logo">
+  </div>
+  <ul>
+    <li><mat-button-toggle (click)="toggleContent()">Accueil</mat-button-toggle></li>
+    <li><mat-button-toggle (click)="redirectHome()">Serveurs</mat-button-toggle></li>
+    <li><mat-button-toggle>Tarification</mat-button-toggle></li>
+  </ul>
+  <ul>
+    <li><mat-button-toggle (click)="toggleLogin()">Login</mat-button-toggle></li>
+    <li><mat-button-toggle (click)="toggleSignin()">Signin</mat-button-toggle></li>
+  </ul>
+</nav>
+<div class="background-image">
+  <div *ngIf="showContent && !showLogin && !showNewContent && !showSignin" class="content" [@slideInOut]>
+    <h1>Location de serveurs</h1>
+    <p>Créez, déployez et gérez des applications sur plusieurs clouds, localement et à la périphérie</p>
+    <button (click)="toggleNewContent()">En savoir plus</button>
+  </div>
+  <div *ngIf="showNewContent && !showLogin && !showContent && !showSignin" class="new_content" [@slideInOut]>
+    <fieldset class="virtual_machine" >
+      <legend>Machine Virtuelle</legend>
+      <div class="vm">
+        <img src="../../../assets/vm.jpg" alt="vm">
+      </div>
+      <a>Configurez votre machine virtuelle sur un serveur distant. Choisissez votre OS, la localisation, la RAM, le nombre de processeurs, l'espace de stockage et beaucoup d'autres paramètres.</a>
+    </fieldset>
+    <fieldset class="sql_database">
+      <legend>SQL Database</legend>
+      <div class="sql">
+        <img src="../../../assets/sql.jpg" alt="sql">
+      </div>
+      <p>Configurez votre base de données SQL sur un serveur distant. Choisissez le mode de compatibilité, la taille de mémoire, le niveaux de sécurité et beaucoup d'autres paramètres.</p>
+    </fieldset>
+    <fieldset class="stockage">
+      <legend>Serveur de Stockage</legend>
+      <div class="storage">
+        <img src="../../../assets/storage.jpg" alt="storage">
+      </div>
+      <p>Configurez votre serveur de stockage sur un serveur distant. Choisissez le système de fichier, le type de RAID, la capacité de stockage et beaucoup d'autres paramètres.</p>
+    </fieldset>
+    <fieldset class="cosmos_database">
+      <legend>Cosmos Database</legend>
+      <div class="cosmos">
+        <img src="../../../assets/cosmos.jpg" alt="cosmos">
+      </div>
+      <p>Configurez votre base de données cosmos sur un serveur distant. Choisissez le niveau de cohérence, le nombre de régions, la taille, la performance et beaucoup d'autres paramètres.</p>
+    </fieldset>
+  </div>
+  <div *ngIf="showLogin && !showNewContent && !showContent && !showSignin" class="new_login" [@slideInOut]>
+    <app-login></app-login>
+  </div>
+  <div *ngIf="!showLogin && !showNewContent && !showContent && showSignin" class="new_signin" [@slideInOut]>
+    <app-signin></app-signin>
+  </div>
+</div>
+</body>
+</html>

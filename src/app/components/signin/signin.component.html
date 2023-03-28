@@ -1,62 +1,97 @@
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./signin.component.css">
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Login</title>-->
+<!--  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">-->
+<!--  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./signin.component.css">-->
 
-</head>
+<!--</head>-->
 
-<div class="global">
-  <!-- partial:index.partial.html -->
-  <div class="box-form">
-    <div class="left">
-      <div class="overlay">
-        <h1>Projet Libre</h1>
-        <p>Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.</p>
-        <p>Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.</p>
-        <p>Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.</p>
-      </div>
+<!--<div class="global">-->
+<!--  &lt;!&ndash; partial:index.partial.html &ndash;&gt;-->
+<!--  <div class="box-form">-->
+<!--    <div class="left">-->
+<!--      <div class="overlay">-->
+<!--        <h1>Projet Libre</h1>-->
+<!--        <p>Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.</p>-->
+<!--        <p>Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.</p>-->
+<!--        <p>Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.Du texte.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <form [formGroup]="signinForm" >-->
+<!--      <div class="right">-->
+
+<!--        <h5>Signin</h5>-->
+
+<!--        <div class="inputs">-->
+<!--          <div style="display: flex;">-->
+<!--            <input class="first_name" type="text" placeholder="First Name">-->
+<!--            <input class="last_name" type="text" placeholder="Last Name">-->
+<!--          </div>-->
+<!--            <br>-->
+<!--          <div style="display: flex;">-->
+<!--            <label for="male">Male</label>-->
+<!--            <input type="radio" id="male" name="gender" value="male">-->
+<!--            <label for="female">Female</label>-->
+<!--            <input type="radio" id="female" name="gender" value="female">-->
+<!--          </div>-->
+<!--          <div style="display: flex;">-->
+<!--          <input type="date" placeholder="Age">-->
+<!--          </div>-->
+<!--          <input type="email" placeholder="Email" formControlName="email">-->
+<!--          <br>-->
+<!--          <input type="password" placeholder="Password" formControlName="password">-->
+<!--        </div>-->
+
+<!--        <br><br>-->
+
+
+<!--        <br>-->
+<!--        <button type="submit" [disabled]="signinForm.invalid">Sign in</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+
+
+<!--  &lt;!&ndash; partial &ndash;&gt;-->
+
+<!--</div>-->
+
+<div class="form-container">
+  <h1 mat-dialog-title>Créer un compte</h1>
+  <div mat-dialog-content [formGroup]="signinForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="Prénom">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-radio-group aria-label="Genre">
+        <mat-radio-button value="1">Homme</mat-radio-button>
+        <mat-radio-button value="2">Femme</mat-radio-button>
+      </mat-radio-group>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password">
+    </mat-form-field>
+    <div mat-dialog-actions class="mat-dialog-actions" [align]="'start'">
+      <button mat-raised-button color="primary" [disabled]="signinForm.invalid"> Sign in </button>
     </div>
-
-    <form [formGroup]="signinForm" >
-      <div class="right">
-
-        <h5>Signin</h5>
-
-        <div class="inputs">
-          <div style="display: flex;">
-            <input class="first_name" type="text" placeholder="First Name">
-            <input class="last_name" type="text" placeholder="Last Name">
-          </div>
-            <br>
-          <div style="display: flex;">
-            <label for="male">Male</label>
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="female">Female</label>
-            <input type="radio" id="female" name="gender" value="female">
-          </div>
-          <div style="display: flex;">
-          <input type="date" placeholder="Age">
-          </div>
-          <input type="email" placeholder="Email" formControlName="email">
-          <br>
-          <input type="password" placeholder="Password" formControlName="password">
-        </div>
-
-        <br><br>
-
-
-        <br>
-        <button type="submit" [disabled]="signinForm.invalid">Sign in</button>
-      </div>
-    </form>
   </div>
-
-
-  <!-- partial -->
-
 </div>
-
 
 
 

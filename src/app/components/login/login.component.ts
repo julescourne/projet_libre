@@ -11,8 +11,10 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent{
 
   loginForm: FormGroup;
-  username! : string ; 
-  password! : string ; 
+  username! : string ;
+  password! : string ;
+
+  hide = true;
 
   constructor(private router: Router ,private authService : AuthService , private formBuilder: FormBuilder) {
       this.loginForm = this.formBuilder.group({
@@ -24,17 +26,17 @@ export class LoginComponent{
 
   onSubmit() {
       if (this.loginForm.valid) {
-        this.username = this.loginForm.get('email')?.value, 
+        this.username = this.loginForm.get('email')?.value,
         this.password = this.loginForm.get('password')?.value,
         this.authService.login({username: this.username ,password:this.password}).subscribe(result => {
           if (result === true )
           {
-            
+            this.router.navigateByUrl('/acceuil')
           }
         })
       }
-    
-      
+
+
   }
 }
 

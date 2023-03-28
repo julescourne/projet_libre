@@ -12,6 +12,8 @@ export class SigninComponent{
 
   signinForm: FormGroup;
 
+  hide = true;
+
   constructor(private router: Router,  private formBuilder: FormBuilder ) {
    this.signinForm = this.formBuilder.group({
       first_name: ['', Validators.required],

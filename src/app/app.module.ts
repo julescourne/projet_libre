@@ -18,11 +18,16 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import {MatPaginatorModule } from '@angular/material/paginator';
 import {MatDialogModule} from "@angular/material/dialog";
-import {MatInputModule} from '@angular/material/input'; 
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AcceuilComponent } from './components/acceuil/acceuil.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SigninComponent,
     ServerComponent,
     ServerPageComponent,
-    CreateServerModalComponent
+    CreateServerModalComponent,
+    AcceuilComponent
   ],
   imports: [
     BrowserModule,
@@ -46,12 +52,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatInputModule, 
+    MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
     BrowserAnimationsModule,
-
+    MatButtonToggleModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {

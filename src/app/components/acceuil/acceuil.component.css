@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../../../assets/background.jpg");
+  background-size: cover;
+  background-opacity: 0.5;
+}
+
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: GothamRoundedMedium,"Helvetica Neue";
+}
+
+nav ul li {
+  margin-left: 40px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+}
+
+nav ul li a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.background-image {
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  color: #fff;
+  text-align: center;
+}
+
+.new_content{
+  color: #fff;
+  text-align: center;
+}
+
+
+.content h1 {
+  font-size: 48px;
+  margin: 0;
+  font-family: "Helvetica Neue",Helvetica;
+}
+
+.content p {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.content button {
+  margin-top: 5%;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.content button:active {
+  box-shadow: 0px 0px 5px 0px white;
+}
+
+.virtual_machine {
+  border-radius: 10px;
+  border: 2px solid white;
+  color: white;
+  background-color: transparent;
+  width: 30vh;
+  height: 40vh;
+  display: inline-block;
+  margin-right: 5vh;
+  margin-left: 5vh;
+}
+
+.sql_database{
+  border-radius: 10px;
+  border: 2px solid white;
+  color: white;
+  background-color: transparent;
+  width: 30vh;
+  height: 40vh;
+  display: inline-block;
+  margin-right: 5vh;
+  margin-left: 5vh;
+}
+
+.stockage{
+  border-radius: 10px;
+  border: 2px solid white;
+  color: white;
+  background-color: transparent;
+  width: 30vh;
+  height: 40vh;
+  display: inline-block;
+  margin-right: 5vh;
+  margin-left: 5vh;
+}
+
+.cosmos_database {
+  border-radius: 10px;
+  border: 2px solid white;
+  color: white;
+  background-color: transparent;
+  width: 30vh;
+  height: 40vh;
+  display: inline-block;
+  margin-right: 5vh;
+  margin-left: 5vh;
+}
+
+.vm img {
+  height: 60px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.sql img {
+  height: 60px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.storage img {
+  height: 60px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.cosmos img {
+  height: 60px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
