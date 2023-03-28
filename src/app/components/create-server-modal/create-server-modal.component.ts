@@ -1,5 +1,5 @@
 import { Component, Input} from '@angular/core';
-import { FormBuilder, FormControlName, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Virtualemachine } from 'src/app/interface/virtualmachine';
 import {MyAzureVirtualMachineImage } from 'src/app/interface/myAzureVirtualMachineImage'
 import { MyRegions } from 'src/app/interface/regions';
@@ -14,15 +14,15 @@ export class CreateServerModalComponent {
 
   form = new FormGroup(
     {
-    vmName : new FormControl(null),  
+    vmName : new FormControl('', [Validators.required]),  
 
-    region:new FormControl(null),
+    region:new FormControl('', [Validators.required]),
   
-    imageDeBase: new FormControl(null),
+    imageDeBase: new FormControl('', [Validators.required]),
   
-    userName:new FormControl(null),
+    userName:new FormControl('', [Validators.required]),
   
-    password: new FormControl(null),
+    password: new FormControl('', [Validators.required]),
   });
 
   hide = true;
@@ -37,7 +37,6 @@ export class CreateServerModalComponent {
   close(){}
 
   save(){
-
     if (this.form.valid) {
       console.log(this.form.value);
     }
