@@ -1,5 +1,5 @@
 table {
-    width:100%;
+    width:80vh;
     overflow-x: auto;
     overflow-y: hidden;
     min-width: 500px;
@@ -10,3 +10,11 @@ th.mat-header-cell {
     text-align: left;
     max-width: 300px;
 }
+
+/*.form-container {*/
+/*  background-color: white;*/
+/*  padding: 20px;*/
+/*  border-radius: 10px;*/
+/*  max-width: 100%;*/
+/*  width: 100%;*/
+/*}*/

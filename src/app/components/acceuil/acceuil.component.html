@@ -4,27 +4,69 @@
   <title>Site de location de serveurs</title>
 </head>
 <body>
-<nav>
+<nav class="main_nav">
   <div class="logo">
     <img src="../../../assets/logo.jpg" alt="logo">
   </div>
   <ul>
-    <li><mat-button-toggle (click)="toggleContent()">Accueil</mat-button-toggle></li>
-    <li><mat-button-toggle (click)="redirectHome()">Serveurs</mat-button-toggle></li>
-    <li><mat-button-toggle>Tarification</mat-button-toggle></li>
+    <li><mat-button-toggle appearance="legacy" (click)="toggleContent()">Accueil</mat-button-toggle></li>
+    <li><mat-button-toggle  appearance="legacy" (click)="toggleServeur()">Serveurs</mat-button-toggle></li>
   </ul>
   <ul>
-    <li><mat-button-toggle (click)="toggleLogin()">Login</mat-button-toggle></li>
-    <li><mat-button-toggle (click)="toggleSignin()">Signin</mat-button-toggle></li>
+    <li><mat-button-toggle appearance="legacy" name="fontStyle" aria-label="Font Style" (click)="toggleLogin()">Login</mat-button-toggle></li>
+    <li><mat-button-toggle appearance="legacy" name="fontStyle" aria-label="Font Style" (click)="toggleSignin()">Signin</mat-button-toggle></li>
   </ul>
 </nav>
+<nav *ngIf="!showContent && !showLogin && !showNewContent && !showSignin && showServeur" class="serveur_nav" [@slideVertical]>
+  <ul>
+    <li (mouseenter)="toggleInNavVM()" (mouseenter)="toggleOutNavSQL()" (mouseenter)="toggleOutNavStorage()" (mouseenter)="toggleOutNavCosmos()"><button mat-button appearance="legacy">Virtual Machine</button></li>
+    <li (mouseenter)="toggleInNavSQL()" (mouseenter)="toggleOutNavVM()" (mouseenter)="toggleOutNavStorage()" (mouseenter)="toggleOutNavCosmos()"><button mat-button  appearance="legacy" >SQL Database</button></li>
+    <li (mouseenter)="toggleInNavStorage()" (mouseenter)="toggleOutNavVM()" (mouseenter)="toggleOutNavSQL()" (mouseenter)="toggleOutNavCosmos()"><button mat-button appearance="legacy" >Storage</button></li>
+    <li (mouseenter)="toggleInNavCosmos()" (mouseenter)="toggleOutNavVM()" (mouseenter)="toggleOutNavSQL()" (mouseenter)="toggleOutNavStorage()"><button mat-button  appearance="legacy" >Cosmos Database</button></li>
+  </ul>
+</nav>
+
+<nav *ngIf="showNavVm" class="vm_nav" (mouseleave)="toggleOutNavVM()" >
+  <ul>
+    <li><button mat-button appearance="legacy" (click)="toggleServerModal()">Create Virtual Machine</button></li>
+    <li><button mat-button appearance="legacy" (click)="toggleDisplayVM()">See my Virtuals Machines</button></li>
+  </ul>
+</nav>
+
+<nav *ngIf="showNavSql" class="sql_nav" (mouseleave)="toggleOutNavSQL()">
+  <ul>
+    <li><button mat-button appearance="legacy">Create SQL Database</button></li>
+    <li><button mat-button appearance="legacy">See my SQL Databases</button></li>
+  </ul>
+</nav>
+
+<nav *ngIf="showNavStorage" class="storage_nav" (mouseleave)="toggleOutNavStorage()">
+  <ul>
+    <li><button mat-button appearance="legacy">Create Storage Server</button></li>
+    <li><button mat-button appearance="legacy">See my Storage Server</button></li>
+  </ul>
+</nav>
+
+<nav *ngIf="showNavCosmos" class="cosmos_nav" (mouseleave)="toggleOutNavCosmos()">
+  <ul>
+    <li><button mat-button appearance="legacy">Create Cosmos Database</button></li>
+    <li><button mat-button appearance="legacy">See my Cosmos Databases</button></li>
+  </ul>
+</nav>
+
 <div class="background-image">
-  <div *ngIf="showContent && !showLogin && !showNewContent && !showSignin" class="content" [@slideInOut]>
+  <div *ngIf="!showVm && !showContent && !showLogin && !showNewContent && !showSignin && showServeur && showServerModal" class="create_server" [@slideVertical]>
+    <app-create-server-modal [parent]="this"></app-create-server-modal>
+  </div>
+  <div *ngIf="showVm && !showContent && !showLogin && !showNewContent && !showSignin && showServeur && !showServerModal" class="display_vm" [@slideVertical]>
+    <app-server></app-server>
+  </div>
+  <div *ngIf="!showVm && showContent && !showLogin && !showNewContent && !showSignin && !showServeur && !showServerModal" class="content" [@slideVertical]>
     <h1>Location de serveurs</h1>
     <p>Créez, déployez et gérez des applications sur plusieurs clouds, localement et à la périphérie</p>
     <button (click)="toggleNewContent()">En savoir plus</button>
   </div>
-  <div *ngIf="showNewContent && !showLogin && !showContent && !showSignin" class="new_content" [@slideInOut]>
+  <div *ngIf="!showVm && showNewContent && !showLogin && !showContent && !showSignin && !showServeur && !showServerModal" class="new_content" [@slideVertical]>
     <fieldset class="virtual_machine" >
       <legend>Machine Virtuelle</legend>
       <div class="vm">
@@ -54,11 +96,11 @@
       <p>Configurez votre base de données cosmos sur un serveur distant. Choisissez le niveau de cohérence, le nombre de régions, la taille, la performance et beaucoup d'autres paramètres.</p>
     </fieldset>
   </div>
-  <div *ngIf="showLogin && !showNewContent && !showContent && !showSignin" class="new_login" [@slideInOut]>
-    <app-login></app-login>
+  <div *ngIf="!showVm && showLogin && !showNewContent && !showContent && !showSignin && !showServeur && !showServerModal" class="new_login" [@slideVertical]>
+    <app-login [parent]="this"></app-login>
   </div>
-  <div *ngIf="!showLogin && !showNewContent && !showContent && showSignin" class="new_signin" [@slideInOut]>
-    <app-signin></app-signin>
+  <div *ngIf="!showVm && !showLogin && !showNewContent && !showContent && showSignin && !showServeur && !showServerModal" class="new_signin" [@slideVertical]>
+    <app-signin [parent]="this"></app-signin>
   </div>
 </div>
 </body>

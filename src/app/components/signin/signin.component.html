@@ -62,23 +62,17 @@
   <div mat-dialog-content [formGroup]="signinForm">
     <mat-form-field appearance="outline">
       <mat-label>Prénom</mat-label>
-      <input matInput placeholder="Prénom">
+      <input matInput placeholder="Prénom" formControlName="prenom">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Nom</mat-label>
-      <input matInput placeholder="Nom">
+      <input matInput placeholder="Nom" formControlName="nom">
     </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-radio-group aria-label="Genre">
-        <mat-radio-button value="1">Homme</mat-radio-button>
-        <mat-radio-button value="2">Femme</mat-radio-button>
-      </mat-radio-group>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <mat-label>Genre</mat-label>
+    <mat-radio-group matInput formControlName="genre" aria-label="Genre">
+      <mat-radio-button value="Homme">Homme</mat-radio-button>
+      <mat-radio-button value="Femme">Femme</mat-radio-button>
+    </mat-radio-group>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput placeholder="Email" formControlName="email">
@@ -88,7 +82,7 @@
       <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password">
     </mat-form-field>
     <div mat-dialog-actions class="mat-dialog-actions" [align]="'start'">
-      <button mat-raised-button color="primary" [disabled]="signinForm.invalid"> Sign in </button>
+      <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="signinForm.invalid"> Sign in </button>
     </div>
   </div>
 </div>

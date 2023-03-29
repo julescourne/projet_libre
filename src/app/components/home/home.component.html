@@ -1,16 +1,25 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button>
-      <mat-icon >menu</mat-icon>
-    </button>
-    <span>Projet Libre</span>
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/login'"> Account </a>
-      <a mat-button [routerLink]="'/virtual-machines'"> My Virtual Machines </a>
-      <mat-dialog-actions><a mat-button (click)="opendialog()"><mat-icon>add</mat-icon> Create Server </a></mat-dialog-actions>
-      <a mat-button [routerLink]="'/create-contact'"> Serveur mail </a>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<!--<mat-toolbar color="primary">-->
+<!--  <mat-toolbar-row>-->
+<!--    <button mat-icon-button>-->
+<!--      <mat-icon >menu</mat-icon>-->
+<!--    </button>-->
+<!--    <span>Projet Libre</span>-->
+<!--    <span class="menu-spacer"></span>-->
+<!--    <div>-->
+<!--      <mat-button-toggle (click)="goToAcceuil()"> Account </mat-button-toggle>-->
+<!--      <a mat-button [routerLink]="'/virtual-machines'"> My Virtual Machines </a>-->
+<!--      <mat-dialog-actions><a mat-button (click)="opendialog()"><mat-icon>add</mat-icon> Create Server </a></mat-dialog-actions>-->
+<!--      <a mat-button [routerLink]="'/create-contact'"> Serveur mail </a>-->
+<!--    </div>-->
+<!--  </mat-toolbar-row>-->
+<!--</mat-toolbar>-->
+<!--<router-outlet></router-outlet>-->
+
+<nav>
+  <ul>
+    <li><mat-button-toggle appearance="legacy">Virtual Machine</mat-button-toggle></li>
+    <li><mat-button-toggle  appearance="legacy">SQL Database</mat-button-toggle></li>
+    <li><mat-button-toggle appearance="legacy">Storage</mat-button-toggle></li>
+    <li><mat-button-toggle  appearance="legacy">Cosmos Database</mat-button-toggle></li>
+  </ul>
+</nav>
