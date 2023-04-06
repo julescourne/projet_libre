@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Virtualemachine } from 'src/app/interface/virtualmachine';
-import virtualMachines from 'src/app/constant/virtual-machine.mokup'
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { VirtualMachineService } from 'src/app/services/virtual-machine.service';
 
 @Component({
   selector: 'app-server',
@@ -17,9 +17,15 @@ export class ServerComponent implements OnInit , AfterViewInit{
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  constructor(private virtuaMachineService : VirtualMachineService){}
+
   ngOnInit() {
-    //TODO use virtual machine service then get all the real data then the mock up once
-    this.dataSource.data = virtualMachines ; 
+    this.virtuaMachineService.getAllUserVm().subscribe({
+      next: data => this.dataSource.data = data,
+      error : err => console.error("something went wrong "+ err),
+      complete: ()=> console.log("retieving the data done")
+    })
+     
   }
 
   ngAfterViewInit(): void {

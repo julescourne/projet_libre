@@ -14,12 +14,13 @@ const routes: Routes = [
   {path: 'acceuil', component: AcceuilComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'home', component: HomeComponent , children :[
+  {path: 'home', component: HomeComponent ,children :[
     {
       path: 'virtual-machines',
       component : ServerComponent
     }
-  ]}
+    
+  ] , canActivate: [AuthGuard]}
   //{path: 'home', component: HomeComponent , canActivate : [AuthGuard]}
 ];
 

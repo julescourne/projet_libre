@@ -12,7 +12,6 @@ import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { TokenInterceptor } from './services/token.interceptors';
 import { ServerComponent } from './components/server/server.component';
-import { ServerPageComponent } from './components/server-page/server-page.component';
 import { CreateServerModalComponent } from './components/create-server-modal/create-server-modal.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -36,7 +35,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     HomeComponent,
     SigninComponent,
     ServerComponent,
-    ServerPageComponent,
     CreateServerModalComponent,
     AcceuilComponent
   ],

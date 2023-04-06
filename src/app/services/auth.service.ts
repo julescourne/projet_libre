@@ -25,6 +25,7 @@ export class AuthService {
   //
   login(user: { email: string, password: string }): Observable<boolean> {
     const url = `${appConstant.BACKEND}${appConstant.TOKEN_ROUTE}`
+    console.log(user);
 
     return this.http.post(url, user , { responseType: 'text'})
       .pipe(
@@ -39,25 +40,15 @@ export class AuthService {
   signin(user: { nom: string, prenom: string, genre: string, email: string, password: string }): Observable<boolean> {
     const url = `${appConstant.BACKEND}authenticate/signin`;
 
-    return this.http.post(url, user , { responseType: 'text'})
-      .pipe(
-        tap(token => this.doSigninUser(user, token)),
-        mapTo(true),
-        catchError(error => {
-          alert(error.error);
-          return of(false);
-        }));
+    return this.http.post<any>(url, user );
   }
-  //TODO add logout to remove make the user token unavable so he can't use it anymore
 
-  private doSigninUser(user: User, token: string) {
-    this.signUser = user;
-    this.storeJwtToken(token);
-  }
 
   private doLoginUser(email: string, token: string) {
     this.loggedUser = email;
+    localStorage.clear()
     this.storeJwtToken(token);
+    localStorage.setItem("USERNAME",email);
   }
 
 
@@ -71,6 +62,7 @@ export class AuthService {
 
     this.loggedUser = '';
     this.removeTokens();
+    localStorage.clear()
   }
 
   // get the token from localStorage
