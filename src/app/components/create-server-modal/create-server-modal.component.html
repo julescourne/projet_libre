@@ -30,7 +30,7 @@
           </mat-select>
         </mat-form-field>
         <div mat-dialog-actions [align]="'end'">
-          <button mat-raised-button color="primary" (click)="save()"> save </button>
+          <button mat-raised-button color="primary" (click)="save()" [disabled]="!isFormValid()"> save </button>
           <button mat-raised-button color="warn"> cancel </button>
         </div>
   </div>

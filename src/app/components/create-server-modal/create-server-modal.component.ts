@@ -48,12 +48,17 @@ export class CreateServerModalComponent {
     this.close();
   }
 
+  isFormValid()
+  {
+    return this.form.valid ;
+  }
+
   save(){
 
     if (this.form.valid) {
       const username = localStorage.getItem("USERNAME");
       const vm = {...this.form.value, userId:username} as Virtualemachine;
-      //this.save$.emit(vm);
+      
       this.virtualMahineService.addVm(vm).subscribe((val)=>console.log(val))
       this.close()
     }
